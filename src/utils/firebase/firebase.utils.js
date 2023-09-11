@@ -21,25 +21,27 @@ const firebaseConfig = {
   messagingSenderId: "894831753597",
   appId: "1:894831753597:web:016822bda3998249ca3414",
 }
-//contains the configuration settings 
+
 const firebaseApp = initializeApp(firebaseConfig)
-//initializes Firebase app with the provided configuration using initializeApp from Firebase.
+
 const googleProvider = new GoogleAuthProvider()
 
+// A GoogleAuthProvider instance is created, which is used for Google sign-in. Also set custom parameters to specify that the user should be prompted 
+// to select an account when signing in.
 googleProvider.setCustomParameters({
   prompt: "select_account",
 })
-// A GoogleAuthProvider instance is created, which is used for Google sign-in. Also set custom parameters to specify that the user should be prompted 
-// to select an account when signing in.
 
 
-export const auth = getAuth()
 //Firebase Authentication (auth) and Firestore (db) instances are created using the corresponding functions getAuth and getFirestore
+export const auth = getAuth()
 export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider)
-export const signInWithGoogleRedirect = () => signInWithRedirect(auth, googleProvider)
 //These functions allow users to signin with Google using a popup or redirect, respectively.
+export const signInWithGoogleRedirect = () => signInWithRedirect(auth, googleProvider)
 export const db = getFirestore()
 
+// takes a collection key and an array of objects to add to Firestore. 
+//It creates a batch write operation to add multiple documents in a single transaction.
 export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
   const collectionRef = collection(db, collectionKey)
   const batch = writeBatch(db)
@@ -52,8 +54,9 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
   await batch.commit()
   console.log('done')
 } 
-// takes a collection key and an array of objects to add to Firestore. 
-//It creates a batch write operation to add multiple documents in a single transaction.
+
+//function retrieves documents from a Firestore collection named "categories." It constructs a map of categories where the keys are category 
+// titles converted to lowercase and the values are arrays of items.
 export const getCategoriesAndDocuments = async () => {
   const collectionRef = collection(db, 'categories')
   const q = query(collectionRef)
@@ -67,8 +70,9 @@ export const getCategoriesAndDocuments = async () => {
 
   return categoryMap
 }
-//function retrieves documents from a Firestore collection named "categories." It constructs a map of categories where the keys are category 
-// titles converted to lowercase and the values are arrays of items.
+
+// function is used to create a user document in Firestore based on the provided userAuth object (which typically represents a user
+// who has signed in). It checks if the user document already exists, and if not, it creates one with information such as displayName, email, and createdAt.
 export const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) => {
     if(!userAuth) return
     const userDocRef = doc(db, 'users', userAuth.uid)
@@ -95,22 +99,21 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
 
     return userDocRef
 }
-// function is used to create a user document in Firestore based on the provided userAuth object (which typically represents a user
-// who has signed in). It checks if the user document already exists, and if not, it creates one with information such as displayName, email, and createdAt.
+// function is used to create a new user account with an email and password combination using Firebase Authentication.
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
     if (!email || !password) return;
     return await createUserWithEmailAndPassword(auth, email, password);
   };
-// function is used to create a new user account with an email and password combination using Firebase Authentication.
+// function is used to sign in an  existing user with an email and password combination using Firebase Authentication.
 export const signInAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
   return await signInWithEmailAndPassword(auth, email, password);
 };
-// function is used to sign in an  existing user with an email and password combination using Firebase Authentication.
-export const signOutUser = async () => await signOut(auth)
+
 // function signs the current user out using Firebase Authentication.
-export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback)
+export const signOutUser = async () => await signOut(auth)
 //  function sets up an observer that listens for changes in the user's authentication state. It takes a callback function that will be called
+export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback)
 // whenever the authentication state changes (e.g., when a user signs in or out).
 
 

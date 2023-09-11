@@ -1,7 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
-
-
-
+// function to add items to cart increments if product already exist else intializes new product with value 1.
 const addCartItem = (cartItems, productToAdd) => {
   const existingCartItem = cartItems.find(
     (cartItem) => cartItem.id === productToAdd.id

@@ -1,7 +1,12 @@
 import { Fragment, useContext } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 
+// This line imports the UserContext from a relative path. This context likely provides information about the user's authentication status.
+
 import { UserContext } from '../../context/user.context';
+
+// This line imports the CartContext from a relative path. This context likely provides information about the shopping cart.
+
 import { CartContext } from '../../context/cart.context';
 
 import CartIcon from '../../components/cart-icon/cart-icon.component';
@@ -11,6 +16,9 @@ import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
 
 import './navigation.styles.scss';
+
+// Navigation component handles the navigation bar of your application, including the logo, navigation links, user authentication status, and shopping cart functionality. 
+// It uses the Link component for navigation and conditional rendering based on the user's authentication status.
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);

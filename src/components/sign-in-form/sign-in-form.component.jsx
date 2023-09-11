@@ -8,6 +8,9 @@ const defaultFormFields = {
     password: '',
 }
 
+// SignInForm component is responsible for rendering a sign-in form that allows users to enter their email and password to sign in. It also provides a "Google Sign In" option. 
+// The form fields and buttons are controlled by state, and the form submission and input changes are handled by corresponding functions.
+
 const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields)
   const { email, password} = formFields;

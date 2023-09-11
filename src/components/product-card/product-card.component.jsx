@@ -3,6 +3,9 @@ import { CartContext } from '../../context/cart.context';
 import Button from '../button/button.component'
 import './product-card.styles.scss'
 
+// ProductCard component is used to render a product card with an image, name, price, and an "Add to Cart" button. 
+// It utilizes the context to add the product to the cart when the button is clicked.
+
 const ProductCard = ({product}) => {
  const {name,price,imageUrl} = product
  const {addItemToCart} = useContext(CartContext);
@@ -22,3 +25,5 @@ const ProductCard = ({product}) => {
 }
 
 export default ProductCard
+
+

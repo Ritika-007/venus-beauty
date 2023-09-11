@@ -1,5 +1,7 @@
 import { createContext, useState, useEffect } from 'react';
 
+
+
 const addCartItem = (cartItems, productToAdd) => {
   const existingCartItem = cartItems.find(
     (cartItem) => cartItem.id === productToAdd.id
@@ -38,6 +40,9 @@ const removeCartItem = (cartItems, cartItemToRemove) => {
 const clearCartItem = (cartItems, cartItemToClear) =>
   cartItems.filter((cartItem) => cartItem.id !== cartItemToClear.id);
 
+// CartContext and a CartProvider that manage the state of a shopping cart in a React application. 
+// The context provides access to cart-related data and functions to the components within its provider's scope.
+  
 export const CartContext = createContext({
   isCartOpen: false,
   setIsCartOpen: () => {},
@@ -49,11 +54,14 @@ export const CartContext = createContext({
   cartTotal: 0,
 });
 
+
 export const CartProvider = ({ children }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
   const [cartTotal, setCartTotal] = useState(0);
+  
+// This useEffect hook calculates the cartCount by summing the quantities of all items in the cart whenever cartItems changes.
 
   useEffect(() => {
     const newCartCount = cartItems.reduce(
@@ -62,6 +70,8 @@ export const CartProvider = ({ children }) => {
     );
     setCartCount(newCartCount);
   }, [cartItems]);
+  
+// This useEffect hook calculates the cartTotal by multiplying the quantity and price of each item and summing them up whenever cartItems changes.
 
   useEffect(() => {
     const newCartTotal = cartItems.reduce(

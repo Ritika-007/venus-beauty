@@ -2,6 +2,10 @@ import { useContext } from 'react'
 import { CartContext } from '../../context/cart.context'
 import './checkout.styles.scss'
 import CheckoutItem from '../../components/checkout-item/checkout-item.component'
+
+// Checkout component is responsible for displaying the items in the shopping cart, including their details and a total price. 
+// It accesses cart data from the CartContext and maps over the cartItems to render each item using the CheckoutItem component.
+
 const Checkout = () => {
   const {cartItems, cartTotal} = useContext(CartContext)
   return (

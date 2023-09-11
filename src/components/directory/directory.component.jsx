@@ -35,7 +35,8 @@ const categories = [
 ];
 
 // Directory component is responsible for rendering a list of category items. 
-// It maps over the categories array and renders a DirectoryItem component for each category, passing the category data as a prop to display a list of categories in your application's directory. 
+// It maps over the categories array and renders a DirectoryItem component for each category, 
+// passing the category data as a prop to display a list of categories in your application's directory. 
 
 const Directory = () => {
   

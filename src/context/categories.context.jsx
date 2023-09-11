@@ -6,7 +6,7 @@ export const CategoriesContext = createContext({
   categoriesMap: {},
 });
 
-// This code creates a CategoriesContext using the createContext function. It provides an initial context value with an empty object {}.
+// creates a CategoriesContext using the createContext function. It provides an initial context value with an empty object {}.
 
 export const CategoriesProvider = ({ children }) => {
   const [categoriesMap, setCategoriesMap] = useState({});

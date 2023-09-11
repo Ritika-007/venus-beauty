@@ -5,7 +5,7 @@ import {
   createUserDocumentFromAuth,
 } from '../utils/firebase/firebase.utils';
 
-// This code creates a UserContext using the createContext function. It provides an initial context value with an object containing two properties: setCurrentUser and currentUser. 
+// creates a UserContext using the createContext function. It provides an initial context value with an object containing two properties: setCurrentUser and currentUser. 
 // setCurrentUser is initialized as an empty function, and currentUser is initialized as null.
 
 export const UserContext = createContext({
@@ -13,8 +13,7 @@ export const UserContext = createContext({
   currentUser: null,
 });
 
-// This code defines a functional component called UserProvider. 
-// It takes children as a prop, which represents the child components that will be wrapped by the provider.
+// functional component userProvider which takes children as a prop, which represents the child components that will be wrapped by the provider.
 
 export const UserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);

@@ -7,6 +7,10 @@ import CartItem from '../cart-item/cart-item.component';
 
 import './cart-dropdown.styles.scss';
 
+// CartDropdown component renders a dropdown containing cart items or a message if the cart is empty. 
+// It also provides a button to navigate to the checkout page. 
+// The cart data is obtained from a context provided by the CartContext provider.
+
 const CartDropdown = () => {
   const { cartItems } = useContext(CartContext);
   const navigate = useNavigate()
@@ -32,3 +36,4 @@ const CartDropdown = () => {
 };
 
 export default CartDropdown;
+

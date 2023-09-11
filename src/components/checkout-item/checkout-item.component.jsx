@@ -2,6 +2,10 @@ import { useContext } from 'react'
 import { CartContext } from '../../context/cart.context'
 import './checkout-item.styles.scss'
 
+// CheckoutItem component is used to render an individual item in the checkout cart. 
+// It displays the item's image, name, quantity (with increment and decrement buttons), price, and a button to remove the item from the cart. 
+// Interaction with the cart like adding, removing, or clearing items is handled through the context functions obtained using useContext.
+
 const CheckoutItem = ({cartItem}) => {
   const {name, imageUrl, price, quantity} = cartItem
   const {clearItemFromCart, addItemToCart, removeItemfromCart} = useContext(CartContext)

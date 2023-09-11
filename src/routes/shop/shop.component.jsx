@@ -5,6 +5,10 @@ import Category from '../category/category.component';
 
 import './shop.styles.scss';
 
+// Shop component sets up routes for your shop page using the Routes and Route components from react-router-dom. 
+// It defines two routes: one for the root URL path ('/') that renders the CategoriesPreview component and another for paths with a :category parameter that renders the Category component. 
+// These routes enable navigation and dynamic content display on the shop page based on the selected category.
+
 const Shop = () => {
   return (
     <Routes>
@@ -15,3 +19,9 @@ const Shop = () => {
 };
 
 export default Shop;
+
+
+
+
+
+*/

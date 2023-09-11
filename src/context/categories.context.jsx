@@ -6,8 +6,12 @@ export const CategoriesContext = createContext({
   categoriesMap: {},
 });
 
+// This code creates a CategoriesContext using the createContext function. It provides an initial context value with an empty object {}.
+
 export const CategoriesProvider = ({ children }) => {
   const [categoriesMap, setCategoriesMap] = useState({});
+  
+// This useEffect hook is used for fetching and setting the categories map when the component mounts. It calls the getCategoriesMap function inside the effect.
 
   useEffect(() => {
     const getCategoriesMap = async () => {

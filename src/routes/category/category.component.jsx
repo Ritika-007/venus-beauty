@@ -3,9 +3,14 @@ import { useParams } from 'react-router-dom';
 
 import ProductCard from '../../components/product-card/product-card.component';
 
+// This line imports the CategoriesContext from a relative path. It's likely used to access category information and their associated products.
+
 import { CategoriesContext } from '../../context/categories.context';
 
 import './category.styles.scss';
+
+// Category component is used to display products belonging to a specific category. 
+// It retrieves the category from the URL, fetches the associated products from the context, and renders them using ProductCard components.
 
 const Category = () => {
   const { category } = useParams();

@@ -11,7 +11,8 @@ const defaultFormFields = {
     confirmPassword: '',
 }
 
-// SignUpForm component is responsible for rendering a sign-up form that allows users to enter their display name, email, password, and confirm password to create a new account. 
+// SignUpForm component is responsible for rendering a sign-up form that allows users to enter their display name, 
+// email, password, and confirm password to create a new account. 
 // It performs validation to ensure that the passwords match and handles user registration and document creation using Firebase.
 
 const SignUpForm = () => {

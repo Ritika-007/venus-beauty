@@ -4,6 +4,9 @@ import ProductCard from '../product-card/product-card.component';
 
 import './category-preview.styles.scss';
 
+// CategoryPreview component is for rendering a preview of a product category whose title as a link that navigates to a route based on the category title. 
+// Below the title, it displays up to four product cards from that category.
+
 const CategoryPreview = ({ title, products }) => {
   return (
     <div className='category-preview-container'>

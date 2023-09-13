@@ -113,8 +113,8 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 // function signs the current user out using Firebase Authentication.
 export const signOutUser = async () => await signOut(auth)
 //  function sets up an observer that listens for changes in the user's authentication state. It takes a callback function that will be called
-export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback)
 // whenever the authentication state changes (e.g., when a user signs in or out).
+export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback)
 
 
 

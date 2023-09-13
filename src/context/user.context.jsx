@@ -5,7 +5,8 @@ import {
   createUserDocumentFromAuth,
 } from '../utils/firebase/firebase.utils';
 
-// creates a UserContext using the createContext function. It provides an initial context value with an object containing two properties: setCurrentUser and currentUser. 
+// creates a UserContext using the createContext function. It provides an initial context value with an object containing two properties: setCurrentUser and 
+// currentUser. 
 // setCurrentUser is initialized as an empty function, and currentUser is initialized as null.
 
 export const UserContext = createContext({

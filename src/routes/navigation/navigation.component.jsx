@@ -15,7 +15,7 @@ import { signOutUser } from '../../utils/firebase/firebase.utils';
 
 import './navigation.styles.scss';
 
-// Navigation component handles the navigation bar of your application, including the logo, navigation links, user authentication status, and 
+// Navigation component handles the navigation bar of the application, including the logo, navigation links, user authentication status, and 
 //shopping cart functionality. 
 // It uses the Link component for navigation and conditional rendering based on the user's authentication status.
 
